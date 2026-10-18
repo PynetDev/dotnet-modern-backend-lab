@@ -16,5 +16,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
         modelBuilder.Entity<Product>()
         .Property(p => p.RowVersion)
         .IsRowVersion();
+        modelBuilder.Entity<Product>()
+        .HasOne(p => p.Category)
+        .WithMany(c => c.Products)
+        .HasForeignKey(p => p.CategoryId)
+        .OnDelete(DeleteBehavior.Restrict);
     }
 }

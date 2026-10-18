@@ -5,6 +5,9 @@
 
 # dotenv files
 .env
+.env.*
+!.env.example
+ModernBackendLab/appsettings.Development.json
 
 # User-specific files
 *.rsuser
