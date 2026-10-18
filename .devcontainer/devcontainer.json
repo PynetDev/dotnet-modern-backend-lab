@@ -1,0 +1,9 @@
+{
+  "name": "Modern Backend Lab",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:1-10.0-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "forwardPorts": [5067, 1433],
+  "postCreateCommand": "bash scripts/setup-db.sh"
+}
