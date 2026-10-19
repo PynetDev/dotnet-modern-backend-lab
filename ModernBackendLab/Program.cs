@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ModernBackendLab.Data;
 using Microsoft.Extensions.Logging;
+using ModernBackendLab.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 #endif
 );
 builder.Services.AddControllers();
+builder.Services.AddGrpc();
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddEndpointsApiExplorer();
@@ -24,7 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.MapControllers();
-
+app.MapGrpcService<ProductsGrpcService>();
 
 app.UseHttpsRedirection();
 
